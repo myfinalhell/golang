@@ -18,7 +18,7 @@ func MyPanic() {
 		re := regexp.MustCompile(`(?i).*panicAndError\.go.*|.*panic\.go.*|.*MyPanic.*|panic\(.*`)
 		stack = re.ReplaceAllString(stack, "")
 		re2 := regexp.MustCompile(`(?m)^\s*$`)
-		stack = re2.ReplaceAllString(stack, "###########")
+		stack = re2.ReplaceAllString(stack, "@@@@@@@@@@@")
 		log.Printf("%s\n%s", pan, stack)
 	}
 }
