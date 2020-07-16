@@ -1,4 +1,4 @@
-package sll
+package golang2
 
 import (
 	"log"
