@@ -4,9 +4,11 @@ import (
 	"log"
 	"regexp"
 	"runtime"
+
+	"github.com/pkg/errors"
 )
 
-//定义一个捕获panic并且输出栈信息的函数
+//MyPanic 定义一个捕获panic并且输出栈信息的函数
 func MyPanic() {
 	pan := recover()
 	if pan != nil {
@@ -23,3 +25,7 @@ func MyPanic() {
 	}
 }
 
+//MyError 定义一个
+func MyError(err error) error {
+	return errors.Wrap(err, `[ERROR]`)
+}
