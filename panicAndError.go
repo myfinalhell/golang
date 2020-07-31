@@ -29,3 +29,9 @@ func MyPanic() {
 func MyError(err error) error {
 	return errors.Wrap(err, `[ERROR]`)
 }
+
+//MyErrorLog xxx
+func MyErrorLog(err error) {
+	err = errors.Wrap(err, `[ERROR]`)
+	log.Printf("%+v\n", err)
+}
