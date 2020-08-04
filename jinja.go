@@ -5,7 +5,6 @@ import (
 
 	gsjs "github.com/bitly/go-simplejson"
 	"github.com/flosch/pongo2"
-	"github.com/myfinalhell/golang2"
 )
 
 //Render 渲染Jinja2模板，pongo2貌似只能渲染一维map，所以value一律按string类型传递
@@ -33,7 +32,7 @@ func Render(newMap map[string]interface{}, tplBytes []byte) (string, error) {
 	tplSting, err := tpl.Execute(ctx)      //执行渲染
 	re := regexp.MustCompile(`\&quot;`)
 	tplSting = re.ReplaceAllString(tplSting, `"`) //如果有&quot;替换为"
-	return tplSting, golang2.MyError(err)
+	return tplSting, MyError(err)
 }
 
 //JSONRender 适合处理POST请求传递过来的json字符串
